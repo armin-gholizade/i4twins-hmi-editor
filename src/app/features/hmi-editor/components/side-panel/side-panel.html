@@ -6,6 +6,34 @@
 
   <section>
     <h2>Attributes</h2>
-    <p>Select an SVG element to inspect its attributes.</p>
+        @if (selectionState.selectedElement(); as selected) {
+      <div class="summary">
+        <div>
+          <span>Tag</span>
+          <strong>{{ selected.tagName }}</strong>
+        </div>
+
+        <div>
+          <span>ID</span>
+          <strong>{{ selected.id || '—' }}</strong>
+        </div>
+
+        <div>
+          <span>Device ID</span>
+          <strong>{{ selected.deviceId || '—' }}</strong>
+        </div>
+      </div>
+
+      <div class="attribute-list">
+        @for (attribute of selected.attributes; track attribute.name) {
+          <div class="attribute-row">
+            <span class="attribute-name">{{ attribute.name }}</span>
+            <span class="attribute-value">{{ attribute.value || '—' }}</span>
+          </div>
+        }
+      </div>
+    } @else {
+      <p>Select an SVG element to inspect its attributes.</p>
+    }
   </section>
 </div>

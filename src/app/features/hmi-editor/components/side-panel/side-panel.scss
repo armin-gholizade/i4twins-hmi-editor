@@ -13,7 +13,7 @@ section {
 }
 
 h2 {
-  margin: 0 0 8px;
+  margin: 0 0 12px;
   font-size: 15px;
 }
 
@@ -21,4 +21,48 @@ p {
   margin: 0;
   color: #68707c;
   font-size: 13px;
+}
+
+.summary {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+
+  div {
+    display: grid;
+    gap: 2px;
+  }
+
+  span {
+    color: #68707c;
+    font-size: 12px;
+  }
+
+  strong {
+    font-size: 13px;
+    word-break: break-word;
+  }
+}
+
+.attribute-list {
+  max-height: 360px;
+  overflow: auto;
+  border-top: 1px solid #eceff3;
+}
+
+.attribute-row {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #eceff3;
+  font-size: 12px;
+}
+
+.attribute-name {
+  color: #68707c;
+}
+
+.attribute-value {
+  word-break: break-word;
 }

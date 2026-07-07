@@ -4,6 +4,16 @@
   </div>
 
   <div class="canvas-content">
-    <div #svgHost class="svg-host"></div>
+    @if (errorMessage()) {
+      <div class="canvas-message error">{{ errorMessage() }}</div>
+    } @else if (isLoading()) {
+      <div class="canvas-message">Loading drawing...</div>
+    }
+
+    <div
+      #svgHost
+      class="svg-host"
+      (pointerdown)="onCanvasPointerDown($event)"
+    ></div>
   </div>
 </div>

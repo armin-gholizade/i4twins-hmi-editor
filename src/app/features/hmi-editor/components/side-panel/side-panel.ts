@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,inject  } from '@angular/core';
+import { EditorSelectionState } from '../../services/editor-selection-state';
 
 @Component({
   selector: 'app-side-panel',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './side-panel.scss',
 })
 export class SidePanel {
+  protected readonly selectionState = inject(EditorSelectionState);
 
 }

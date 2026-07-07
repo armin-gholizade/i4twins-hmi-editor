@@ -37,3 +37,13 @@
   padding: 32px;
   box-sizing: border-box;
 }
+
+.canvas-message {
+  padding: 16px;
+  color: #68707c;
+  font-size: 14px;
+}
+
+.canvas-message.error {
+  color: #b3261e;
+}

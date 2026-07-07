@@ -7,9 +7,10 @@ import {
   viewChild,
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { EditorSelectionState } from '../../services/editor-selection-state';
 import { SvgDom } from '../../services/svg-dom';
 import { SvgElementInfo } from '../../models/svg-element-info';
+import { SelectedSvgElement } from '../../models/selected-svg-element';
 @Component({
   selector: 'app-svg-canvas',
   imports: [],
@@ -19,6 +20,7 @@ import { SvgElementInfo } from '../../models/svg-element-info';
 export class SvgCanvas implements AfterViewInit {
   private readonly http = inject(HttpClient);
   private readonly svgDom = inject(SvgDom);
+  private readonly selectionState = inject(EditorSelectionState);
 
   protected readonly svgHost =
     viewChild.required<ElementRef<HTMLDivElement>>('svgHost');
@@ -26,9 +28,31 @@ export class SvgCanvas implements AfterViewInit {
   protected readonly isLoading = signal(false);
   protected readonly errorMessage = signal<string | null>(null);
   protected readonly elements = signal<SvgElementInfo[]>([]);
+  protected readonly selectedElement = signal<SelectedSvgElement | null>(null);
+
+  private svgRoot: SVGSVGElement | null = null;
 
   ngAfterViewInit(): void {
     this.loadSvg('/assets/plant.svg');
+  }
+
+  protected onCanvasPointerDown(event: PointerEvent): void {
+    const svgRoot =
+      this.svgRoot ??
+      this.svgHost().nativeElement.querySelector<SVGSVGElement>('svg');
+
+    const element = this.svgDom.resolveSelectableElement(event, svgRoot);
+
+    if (!element) {
+      this.svgDom.clearSelection();
+      this.selectedElement.set(null);
+      this.selectionState.clear();
+      return;
+    }
+    const selected = this.svgDom.selectElement(element);
+
+    this.selectedElement.set(selected);
+    this.selectionState.select(selected);
   }
 
   private loadSvg(path: string): void {
@@ -44,6 +68,7 @@ export class SvgCanvas implements AfterViewInit {
   private renderSvg(svgText: string): void {
     try {
       const svg = this.svgDom.prepareForCanvas(this.svgDom.parse(svgText));
+      this.svgRoot = svg;
       this.svgDom.render(this.svgHost().nativeElement, svg);
       this.elements.set(this.svgDom.discoverInteractiveElements(svg));
     } catch {
