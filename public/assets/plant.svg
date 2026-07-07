@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="Arial">
+  <defs>
+    <linearGradient id="tankFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dbe7f3"/><stop offset="1" stop-color="#b9cfe4"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="900" height="520" fill="#f7f9fb"/>
+  <text x="24" y="36" font-size="20" fill="#334155">Unit 100 — Cooling Line</text>
+  <g id="tank-1" data-device-id="DVC-1005">
+    <rect x="60" y="90" width="140" height="180" rx="14" fill="url(#tankFill)" stroke="#4a6785" stroke-width="3"/>
+    <text x="86" y="185" font-size="14" fill="#33475b">TANK T-100</text>
+  </g>
+  <path id="pipe-main" d="M200 180 H 360" stroke="#7a8ca0" stroke-width="10" fill="none"/>
+  <path id="pipe-2" d="M470 180 H 620" stroke="#7a8ca0" stroke-width="10" fill="none"/>
+  <path d="M675 180 H 820 V 330 H 700" stroke="#7a8ca0" stroke-width="10" fill="none"/>
+  <g id="pump-1" data-device-id="DVC-1012">
+    <circle cx="415" cy="180" r="42" fill="#e8eef5" stroke="#4a6785" stroke-width="3"/>
+    <path d="M395 180 L 435 160 L 435 200 Z" fill="#4a6785"/>
+    <text x="386" y="245" font-size="13" fill="#33475b">PUMP P-101</text>
+  </g>
+  <g id="pump-2" data-device-id="DVC-1044">
+    <circle cx="655" cy="180" r="34" fill="#e8eef5" stroke="#4a6785" stroke-width="3"/>
+    <path d="M639 180 L 671 164 L 671 196 Z" fill="#4a6785"/>
+    <text x="628" y="238" font-size="13" fill="#33475b">PUMP P-102</text>
+  </g>
+  <g id="fan-unit" data-device-id="DVC-1063">
+    <circle cx="640" cy="400" r="46" fill="#eef2f7" stroke="#4a6785" stroke-width="3"/>
+    <path d="M640 400 L 640 360 A 40 40 0 0 1 676 392 Z" fill="#6b8299"/>
+    <path d="M640 400 L 680 412 A 40 40 0 0 1 622 438 Z" fill="#6b8299"/>
+    <path d="M640 400 L 606 384 A 40 40 0 0 1 640 360 Z" fill="#9fb2c4"/>
+    <text x="600" y="470" font-size="13" fill="#33475b">FAN F-201</text>
+  </g>
+  <g id="valve-1" data-device-id="DVC-2087">
+    <path d="M300 330 l 26 16 v -32 z" fill="#c9d4df" stroke="#4a6785" stroke-width="2.5"/>
+    <path d="M352 330 l -26 16 v -32 z" fill="#c9d4df" stroke="#4a6785" stroke-width="2.5"/>
+    <rect x="322" y="300" width="8" height="20" fill="#4a6785"/>
+    <text x="288" y="372" font-size="13" fill="#33475b">VALVE V-110</text>
+  </g>
+  <circle cx="520" cy="330" r="12" fill="#f2c94c" stroke="#8a6d1a" stroke-width="2" data-device-id="DVC-1101"/>
+  <rect id="pump-2" x="760" y="90" width="90" height="56" rx="8" fill="#e8eef5" stroke="#4a6785" stroke-width="2.5" data-device-id="DVC-1078"/>
+  <text x="768" y="124" font-size="12" fill="#33475b">COMP C-301</text>
+</svg>

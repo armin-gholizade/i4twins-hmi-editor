@@ -1,15 +1,39 @@
-.canvas-card {
+:host {
+  display: block;
   height: 100%;
-  border: 1px solid #dde1e6;
-  border-radius: 10px;
-  background: white;
+}
+
+.canvas-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #dcdfe4;
+  border-radius: 8px;
   overflow: hidden;
 }
 
-.canvas-placeholder {
-  height: 100%;
-  display: grid;
-  place-items: center;
-  color: #7a828e;
-  font-size: 14px;
+.canvas-header {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-bottom: 1px solid #eceff3;
+  font-weight: 600;
+}
+
+.canvas-content {
+  flex: 1;
+  overflow: auto;
+  background: #f7f8fa;
+}
+
+.svg-host {
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  box-sizing: border-box;
 }
