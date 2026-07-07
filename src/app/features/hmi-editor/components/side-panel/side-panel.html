@@ -6,34 +6,46 @@
 
   <section>
     <h2>Attributes</h2>
-        @if (selectionState.selectedElement(); as selected) {
-      <div class="summary">
-        <div>
-          <span>Tag</span>
-          <strong>{{ selected.tagName }}</strong>
-        </div>
-
-        <div>
-          <span>ID</span>
-          <strong>{{ selected.id || '—' }}</strong>
-        </div>
-
-        <div>
-          <span>Device ID</span>
-          <strong>{{ selected.deviceId || '—' }}</strong>
-        </div>
+    @if (feedbackMessage()) {
+    <div class="feedback">{{ feedbackMessage() }}</div>
+    }
+    @if (selectionState.selectedElement(); as selected) {
+    <div class="summary">
+      <div>
+        <span>Tag</span>
+        <strong>{{ selected.tagName }}</strong>
       </div>
 
-      <div class="attribute-list">
-        @for (attribute of selected.attributes; track attribute.name) {
-          <div class="attribute-row">
-            <span class="attribute-name">{{ attribute.name }}</span>
-            <span class="attribute-value">{{ attribute.value || '—' }}</span>
-          </div>
-        }
+      <div>
+        <span>ID</span>
+        <strong>{{ selected.id || '—' }}</strong>
       </div>
+
+      <div>
+        <span>Device ID</span>
+        <strong>{{ selected.deviceId || '—' }}</strong>
+      </div>
+    </div>
+
+    <div class="attribute-list">
+      @for (attribute of selected.attributes; track attribute.name) {
+      <div class="attribute-row">
+        <label [for]="'attr-' + attribute.name">
+          {{ attribute.name }}
+        </label>
+
+        <input [id]="'attr-' + attribute.name" type="text" [value]="editedValues()[attribute.name] ?? attribute.value"
+          (input)="updateEditedValue(attribute.name, $any($event.target).value)" />
+
+        <button type="button" [disabled]="!hasAttributeChanged(attribute.name, attribute.value)"
+          (click)="saveAttribute(attribute.name)">
+          Save
+        </button>
+      </div>
+      }
+    </div>
     } @else {
-      <p>Select an SVG element to inspect its attributes.</p>
+    <p>Select an SVG element to inspect its attributes.</p>
     }
   </section>
 </div>

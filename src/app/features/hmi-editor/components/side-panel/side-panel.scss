@@ -52,17 +52,45 @@ p {
 
 .attribute-row {
   display: grid;
-  grid-template-columns: 120px minmax(0, 1fr);
-  gap: 12px;
+  grid-template-columns: 90px minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
   padding: 8px 0;
   border-bottom: 1px solid #eceff3;
   font-size: 12px;
 }
 
-.attribute-name {
+label {
   color: #68707c;
+  word-break: break-word;
 }
 
-.attribute-value {
-  word-break: break-word;
+input {
+  min-width: 0;
+  padding: 6px 8px;
+  border: 1px solid #c8ccd2;
+  border-radius: 6px;
+  font: inherit;
+}
+
+button {
+  padding: 6px 10px;
+  border: 1px solid #c8ccd2;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+}
+
+.feedback {
+  margin-bottom: 12px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: #e7f4ea;
+  color: #1f6f3d;
+  font-size: 12px;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }

@@ -11,7 +11,12 @@ export class EditorSelectionState {
     this.selectedElement.set(element);
   }
 
+  updateSelection(element: SelectedSvgElement): void {
+  this.selectedElement.set(element);
+}
+
   clear(): void {
     this.selectedElement.set(null);
   }
+
 }

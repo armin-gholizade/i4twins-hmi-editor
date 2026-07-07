@@ -61,7 +61,7 @@ export class SvgDom {
     event: PointerEvent,
     svgRoot: SVGSVGElement | null
   ): SVGElement | null {
-    
+
     if (!svgRoot) {
       return null;
     }
@@ -73,12 +73,12 @@ export class SvgDom {
         continue;
       }
 
-      const deviceElement:any = item.closest<SVGElement>('[data-device-id]');
+      const deviceElement: any = item.closest<SVGElement>('[data-device-id]');
       if (deviceElement && deviceElement !== svgRoot && svgRoot.contains(deviceElement)) {
         return deviceElement;
       }
 
-      const idElement:any = item.closest<SVGElement>('[id]');
+      const idElement: any = item.closest<SVGElement>('[id]');
       if (idElement && idElement !== svgRoot && svgRoot.contains(idElement)) {
         return idElement;
       }
@@ -139,5 +139,27 @@ export class SvgDom {
 
     svg.appendChild(rect);
     this.selectionBox = rect;
+  }
+
+  updateAttribute(
+    element: SVGElement,
+    name: string,
+    value: string
+  ): SelectedSvgElement {
+    const normalizedValue = value.trim();
+
+    if (normalizedValue) {
+      element.setAttribute(name, normalizedValue);
+    } else {
+      element.removeAttribute(name);
+    }
+
+    return {
+      element,
+      tagName: element.tagName.toLowerCase(),
+      id: element.getAttribute('id'),
+      deviceId: element.getAttribute('data-device-id'),
+      attributes: this.getAttributes(element),
+    };
   }
 }
