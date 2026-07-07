@@ -9,7 +9,7 @@ import {
 import { HttpClient } from '@angular/common/http';
 
 import { SvgDom } from '../../services/svg-dom';
-
+import { SvgElementInfo } from '../../models/svg-element-info';
 @Component({
   selector: 'app-svg-canvas',
   imports: [],
@@ -25,6 +25,7 @@ export class SvgCanvas implements AfterViewInit {
 
   protected readonly isLoading = signal(false);
   protected readonly errorMessage = signal<string | null>(null);
+  protected readonly elements = signal<SvgElementInfo[]>([]);
 
   ngAfterViewInit(): void {
     this.loadSvg('/assets/plant.svg');
@@ -44,6 +45,7 @@ export class SvgCanvas implements AfterViewInit {
     try {
       const svg = this.svgDom.prepareForCanvas(this.svgDom.parse(svgText));
       this.svgDom.render(this.svgHost().nativeElement, svg);
+      this.elements.set(this.svgDom.discoverInteractiveElements(svg));
     } catch {
       this.errorMessage.set('The SVG drawing could not be rendered.');
     } finally {

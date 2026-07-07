@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { SvgElementInfo } from '../models/svg-element-info';
 
 @Injectable({
   providedIn: 'root',
@@ -34,5 +35,18 @@ export class SvgDom {
 
   render(host: HTMLElement, svg: SVGSVGElement): void {
     host.replaceChildren(svg);
+  }
+
+  discoverInteractiveElements(svg: SVGSVGElement): SvgElementInfo[] {
+    const elements = Array.from(
+      svg.querySelectorAll<SVGElement>('[data-device-id], [id]')
+    );
+
+    return elements.map((element) => ({
+      element,
+      tagName: element.tagName.toLowerCase(),
+      id: element.getAttribute('id'),
+      deviceId: element.getAttribute('data-device-id'),
+    }));
   }
 }
