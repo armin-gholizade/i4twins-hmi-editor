@@ -1,0 +1,20 @@
+.editor-shell {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f6f7f9;
+}
+
+.editor-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 16px;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.canvas-section,
+.side-section {
+  min-height: 0;
+}

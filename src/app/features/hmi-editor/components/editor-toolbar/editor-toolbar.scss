@@ -1,0 +1,34 @@
+.toolbar {
+  height: 64px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-bottom: 1px solid #dde1e6;
+}
+
+h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+span {
+  color: #68707c;
+  font-size: 13px;
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+button {
+  padding: 8px 14px;
+  border: 1px solid #c8ccd2;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+}

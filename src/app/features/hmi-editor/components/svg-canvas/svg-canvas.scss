@@ -1,0 +1,15 @@
+.canvas-card {
+  height: 100%;
+  border: 1px solid #dde1e6;
+  border-radius: 10px;
+  background: white;
+  overflow: hidden;
+}
+
+.canvas-placeholder {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: #7a828e;
+  font-size: 14px;
+}
