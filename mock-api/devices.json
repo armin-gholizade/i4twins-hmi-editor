@@ -1,0 +1,861 @@
+[
+ {
+  "id": "DVC-1279",
+  "code": "C-324",
+  "name": "Compressor C-324",
+  "type": "compressor",
+  "area": "Unit 200",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:01:00Z",
+  "vendor": "—"
+ },
+ {
+  "id": "DVC-1704",
+  "code": "V-131",
+  "name": "Valve V-131",
+  "type": "valve",
+  "area": "Utilities",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:01:20Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1005",
+  "code": "T-100",
+  "name": "Storage Tank T-100",
+  "type": "tank",
+  "area": "Unit 100",
+  "status": "running",
+  "lastSeen": "2025-06-01T08:23:00Z",
+  "vendor": "KWX"
+ },
+ {
+  "id": "DVC-1357",
+  "code": "P-119",
+  "name": "Pump P-119",
+  "type": "pump",
+  "area": "Cooling Line",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:34:40Z",
+  "vendor": "KWX"
+ },
+ {
+  "id": "DVC-1214",
+  "code": "V-130",
+  "name": "Valve V-130",
+  "type": "valve",
+  "area": "Unit 100",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:28:30Z",
+  "vendor": "KWX"
+ },
+ {
+  "id": "DVC-1298",
+  "code": "C-326",
+  "name": "Compressor C-326",
+  "type": "compressor",
+  "area": "Warehouse",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:16:30Z",
+  "vendor": "FlowTek"
+ },
+ {
+  "id": "DVC-1675",
+  "code": "M-415",
+  "name": "Motor M-415",
+  "type": "motor",
+  "area": "Cooling Line",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:26:30Z",
+  "vendor": "KWX"
+ },
+ {
+  "id": "DVC-1351",
+  "code": "M-414",
+  "name": "Motor M-414",
+  "type": "motor",
+  "area": "Unit 100",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:10:10Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1049",
+  "code": "V-126",
+  "name": "Valve V-126",
+  "type": "valve",
+  "area": "Cooling Line",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:25:40Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1606",
+  "code": "V-124",
+  "name": "Valve V-124",
+  "type": "valve",
+  "area": "Cooling Line",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:25:50Z",
+  "vendor": "FlowTek"
+ },
+ {
+  "id": "DVC-1071",
+  "code": "M-418",
+  "name": "Motor M-418",
+  "type": "motor",
+  "area": "Utilities",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:24:10Z",
+  "vendor": "—"
+ },
+ {
+  "id": "DVC-1352",
+  "code": "C-327",
+  "name": "Compressor C-327",
+  "type": "compressor",
+  "area": "Unit 200",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:30:50Z",
+  "vendor": "KWX"
+ },
+ {
+  "id": "DVC-1877",
+  "code": "M-417",
+  "name": "Motor M-417",
+  "type": "motor",
+  "area": "Unit 100",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:13:50Z",
+  "vendor": "—"
+ },
+ {
+  "id": "DVC-1475",
+  "code": "V-137",
+  "name": "Valve V-137",
+  "type": "valve",
+  "area": "Unit 200",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:27:00Z",
+  "vendor": "KWX"
+ },
+ {
+  "id": "DVC-1230",
+  "code": "C-323",
+  "name": "Compressor C-323",
+  "type": "compressor",
+  "area": "Unit 200",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:06:00Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1003",
+  "code": "C-315",
+  "name": "Compressor C-315",
+  "type": "compressor",
+  "area": "Warehouse",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:11:10Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1304",
+  "code": "S-142",
+  "name": "Sensor S-142",
+  "type": "sensor",
+  "area": "Cooling Line",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:31:20Z",
+  "vendor": "—"
+ },
+ {
+  "id": "DVC-1854",
+  "code": "S-143",
+  "name": "Sensor S-143",
+  "type": "sensor",
+  "area": "Unit 100",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:31:10Z",
+  "vendor": "—"
+ },
+ {
+  "id": "DVC-1843",
+  "code": "V-129",
+  "name": "Valve V-129",
+  "type": "valve",
+  "area": "Unit 100",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:14:40Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1382",
+  "code": "C-321",
+  "name": "Compressor C-321",
+  "type": "compressor",
+  "area": "Cooling Line",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:16:10Z",
+  "vendor": "FlowTek"
+ },
+ {
+  "id": "DVC-1580",
+  "code": "S-131",
+  "name": "Sensor S-131",
+  "type": "sensor",
+  "area": "Unit 100",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:13:30Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1592",
+  "code": "P-118",
+  "name": "Pump P-118",
+  "type": "pump",
+  "area": "Unit 200",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:22:50Z",
+  "vendor": "FlowTek"
+ },
+ {
+  "id": "DVC-1767",
+  "code": "S-141",
+  "name": "Sensor S-141",
+  "type": "sensor",
+  "area": "Utilities",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:34:30Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1221",
+  "code": "S-135",
+  "type": "sensor",
+  "area": "Unit 200",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:33:40Z",
+  "vendor": "FlowTek"
+ },
+ {
+  "id": "DVC-1740",
+  "code": "V-134",
+  "name": "Valve V-134",
+  "type": "valve",
+  "area": "Unit 100",
+  "status": "running",
+  "lastSeen": "2025-06-01T08:11:50Z",
+  "vendor": "KWX"
+ },
+ {
+  "id": "DVC-1021",
+  "code": "P-120",
+  "name": "Pump P-120",
+  "type": "pump",
+  "area": "Warehouse",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:03:00Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1576",
+  "code": "V-122",
+  "name": "Valve V-122",
+  "type": "valve",
+  "area": "Warehouse",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:34:10Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1012",
+  "code": "P-101",
+  "name": "Cooling Pump P-101",
+  "type": "pump",
+  "area": "Cooling Line",
+  "status": "running",
+  "lastSeen": "2025-06-01T08:26:00Z",
+  "vendor": "KWX"
+ },
+ {
+  "id": "DVC-1234",
+  "code": "C-325",
+  "name": "فن تهویه سالن رنگ",
+  "type": "compressor",
+  "area": "Unit 100",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:17:00Z",
+  "vendor": "KWX"
+ },
+ {
+  "id": "DVC-1716",
+  "code": "F-211",
+  "name": "Aux Booster Pump for the North Cooling Water Circulation Loop of Unit 200 — Backup of Backup (temporary tag, do not remove until commissioning of the new line is complete)",
+  "type": "fan",
+  "area": "Unit 200",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:21:40Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1306",
+  "code": "S-136",
+  "name": "Sensor S-136",
+  "type": "sensor",
+  "area": "Unit 100",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:01:20Z",
+  "vendor": "—"
+ },
+ {
+  "id": "DVC-1677",
+  "code": "M-416",
+  "name": "Motor M-416",
+  "type": "motor",
+  "area": "Cooling Line",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:29:20Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1544",
+  "code": "S-134",
+  "name": "Sensor S-134",
+  "type": "sensor",
+  "area": "Cooling Line",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:05:10Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1257",
+  "code": "S-132",
+  "name": "Sensor S-132",
+  "type": "sensor",
+  "area": "Warehouse",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:13:40Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1315",
+  "code": "S-144",
+  "name": "Sensor S-144",
+  "type": "sensor",
+  "area": "Warehouse",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:32:30Z",
+  "vendor": "—"
+ },
+ {
+  "id": "DVC-1584",
+  "code": "C-317",
+  "name": "Compressor C-317",
+  "type": "compressor",
+  "area": "Cooling Line",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:28:50Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1963",
+  "code": "V-125",
+  "name": "Valve V-125",
+  "type": "valve",
+  "area": "Unit 100",
+  "status": "running",
+  "lastSeen": "2025-06-01T08:32:10Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1779",
+  "code": "C-328",
+  "name": "Compressor C-328",
+  "type": "compressor",
+  "area": "Unit 200",
+  "status": "stopped",
+  "lastSeen": null,
+  "vendor": "FlowTek"
+ },
+ {
+  "id": "dvc-1101",
+  "code": "S-118",
+  "name": "Line Temp Sensor S-118",
+  "type": "sensor",
+  "area": "Cooling Line",
+  "status": "running",
+  "lastSeen": "2025-06-01T08:23:00Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1990",
+  "code": "V-127",
+  "name": "Valve V-127",
+  "type": "valve",
+  "area": "Cooling Line",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:02:40Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1001",
+  "code": "F-217",
+  "name": "Fan F-217",
+  "type": "fan",
+  "area": "Cooling Line",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:28:50Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1044",
+  "code": "P-102",
+  "name": "Cooling Pump P-102",
+  "type": "pump",
+  "area": "Cooling Line",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:14:00Z",
+  "vendor": "KWX"
+ },
+ {
+  "id": "DVC-1443",
+  "code": "M-419",
+  "name": "Motor M-419",
+  "type": "motor",
+  "area": "Unit 100",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:29:40Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1584",
+  "code": "C-317",
+  "name": "Compressor C-317",
+  "type": "compressor",
+  "area": "Cooling Line",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:29:30Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1559",
+  "code": "C-319",
+  "name": "Compressor C-319",
+  "type": "compressor",
+  "area": "Unit 200",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:20:00Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1718",
+  "code": "S-140",
+  "name": "Sensor S-140",
+  "type": "sensor",
+  "area": "Cooling Line",
+  "status": "running",
+  "lastSeen": "2025-06-01T08:30:00Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1782",
+  "code": "P-113",
+  "name": "Pump P-113",
+  "type": "pump",
+  "area": "Unit 200",
+  "status": "running",
+  "lastSeen": "2025-06-01T08:21:00Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1825",
+  "code": "P-112",
+  "name": "Pump P-112",
+  "type": "pump",
+  "area": "Unit 200",
+  "status": null,
+  "lastSeen": "2025-06-01T08:24:30Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1694",
+  "code": "C-312",
+  "name": "Compressor C-312",
+  "type": "compressor",
+  "area": "Cooling Line",
+  "status": "running",
+  "lastSeen": "2025-06-01T08:28:30Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1634",
+  "code": "C-318",
+  "name": "Compressor C-318",
+  "type": "compressor",
+  "area": "Unit 200",
+  "status": "running",
+  "lastSeen": "2025-06-01T08:00:40Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1938",
+  "code": "M-413",
+  "name": "Motor M-413",
+  "type": "motor",
+  "area": "Unit 200",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:16:50Z",
+  "vendor": "KWX"
+ },
+ {
+  "id": "DVC-1810",
+  "code": "V-136",
+  "name": "Valve V-136",
+  "type": "valve",
+  "area": "Warehouse",
+  "status": "FAULT",
+  "lastSeen": "2025-06-01T08:21:10Z",
+  "vendor": "KWX"
+ },
+ {
+  "id": "DVC-1228",
+  "code": "C-314",
+  "name": "Compressor C-314",
+  "type": "compressor",
+  "area": "Cooling Line",
+  "status": "running",
+  "lastSeen": "2025-06-01T08:27:20Z",
+  "vendor": "FlowTek"
+ },
+ {
+  "id": "DVC-1808",
+  "code": "S-139",
+  "name": "Sensor S-139",
+  "type": "sensor",
+  "area": "Cooling Line",
+  "status": "running",
+  "lastSeen": "2025-06-01T08:11:10Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1636",
+  "code": "V-133",
+  "name": "Valve V-133",
+  "type": "valve",
+  "area": "Utilities",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:13:20Z",
+  "vendor": "KWX"
+ },
+ {
+  "id": "DVC-1874",
+  "code": "P-115",
+  "name": "Pump P-115",
+  "type": "pump",
+  "area": "Utilities",
+  "status": "degraded",
+  "lastSeen": "2025-06-01T08:09:10Z",
+  "vendor": "FlowTek"
+ },
+ {
+  "id": "DVC-1448",
+  "code": "V-121",
+  "name": "Valve V-121",
+  "type": "valve",
+  "area": "Utilities",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:19:00Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1492",
+  "code": "S-138",
+  "name": "Sensor S-138",
+  "type": "sensor",
+  "area": "Unit 200",
+  "status": "running",
+  "lastSeen": "2025-06-01T08:21:30Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1852",
+  "code": "V-128",
+  "name": "Valve V-128",
+  "type": "valve",
+  "area": "Unit 200",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:27:00Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1936",
+  "code": "M-420",
+  "name": "Motor M-420",
+  "type": "motor",
+  "area": "Unit 200",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:26:40Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1974",
+  "code": "C-320",
+  "name": "Compressor C-320",
+  "type": "compressor",
+  "area": "Cooling Line",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:12:40Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1642",
+  "code": "M-411",
+  "name": "Motor M-411",
+  "type": "motor",
+  "area": "Cooling Line",
+  "status": "running",
+  "lastSeen": "2025-06-01T08:25:00Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1982",
+  "code": "F-216",
+  "name": "Fan F-216",
+  "type": "fan",
+  "area": "Utilities",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:16:40Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1078",
+  "code": "C-301",
+  "name": "Air Compressor C-301",
+  "type": "compressor",
+  "area": "Utilities",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:27:00Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1736",
+  "code": "M-412",
+  "name": "Motor M-412",
+  "type": "motor",
+  "area": "Warehouse",
+  "status": "stopped",
+  "lastSeen": "n/a",
+  "vendor": "KWX"
+ },
+ {
+  "id": "DVC-1027",
+  "code": "P-116",
+  "name": "Pump P-116",
+  "type": "pump",
+  "area": "Utilities",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:32:50Z",
+  "vendor": "KWX"
+ },
+ {
+  "id": "DVC-1034",
+  "code": "M-413",
+  "name": "Valve V-132",
+  "type": "valve",
+  "area": "Unit 200",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:02:10Z",
+  "vendor": "FlowTek"
+ },
+ {
+  "id": "DVC-1966",
+  "code": "F-218",
+  "name": "Fan F-218",
+  "type": "fan",
+  "area": "Unit 200",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:31:20Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1117",
+  "code": "F-212",
+  "name": "Fan F-212",
+  "type": "fan",
+  "area": "Unit 200",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:14:00Z",
+  "vendor": "FlowTek"
+ },
+ {
+  "id": "DVC-1427",
+  "code": "P-111",
+  "name": "Pump P-111",
+  "type": "pump",
+  "area": "Warehouse",
+  "status": "running",
+  "lastSeen": "2025-06-01T08:34:00Z",
+  "vendor": "—"
+ },
+ {
+  "id": "DVC-1365",
+  "code": "F-215",
+  "name": "  Fan F-215  ",
+  "type": "fan",
+  "area": "Unit 200",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:20:50Z",
+  "vendor": "—"
+ },
+ {
+  "id": "DVC-1394",
+  "code": "C-313",
+  "name": "",
+  "type": "compressor",
+  "area": "Unit 200",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:32:40Z",
+  "vendor": "—"
+ },
+ {
+  "id": "DVC-1596",
+  "code": "S-133",
+  "name": "Sensor S-133",
+  "type": "sensor",
+  "area": "Warehouse",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:22:30Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1886",
+  "code": "F-213",
+  "name": "Fan F-213",
+  "type": "fan",
+  "area": "Cooling Line",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:11:50Z",
+  "vendor": "KWX"
+ },
+ {
+  "id": "DVC-1094",
+  "code": "V-135",
+  "name": "Valve V-135",
+  "type": "valve",
+  "area": "Warehouse",
+  "status": "running",
+  "lastSeen": "2025-06-01T08:22:40Z",
+  "vendor": "KWX"
+ },
+ {
+  "id": "DVC-1576",
+  "code": "V-122",
+  "name": "Valve V-122",
+  "type": "valve",
+  "area": "Warehouse",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:34:10Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1915",
+  "code": "C-311",
+  "name": "Compressor C-311",
+  "type": "compressor",
+  "area": "Unit 100",
+  "status": "running",
+  "lastSeen": "2025-06-01T08:23:10Z",
+  "vendor": "Aria Pumps"
+ },
+ {
+  "id": "DVC-1288",
+  "code": "C-316",
+  "name": null,
+  "type": "compressor",
+  "area": "Unit 100",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:10:20Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1661",
+  "code": "P-114",
+  "name": "پمپ آب خنک‌کن شمالی",
+  "type": "pump",
+  "area": "Warehouse",
+  "status": "fault",
+  "lastSeen": "2025-06-01T08:12:50Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1894",
+  "code": "F-219",
+  "name": "Fan F-219",
+  "type": "fan",
+  "area": "Unit 100",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:24:50Z",
+  "vendor": "KWX"
+ },
+ {
+  "id": "DVC-1961",
+  "code": "C-322",
+  "name": "Compressor C-322",
+  "type": "compressor",
+  "area": "Warehouse",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:27:40Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1063",
+  "code": "F-201",
+  "name": "Cooling Fan F-201",
+  "type": "fan",
+  "area": "Cooling Line",
+  "status": "running",
+  "lastSeen": "2025-06-01T08:17:00Z",
+  "vendor": "Novin Drive"
+ },
+ {
+  "id": "DVC-1218",
+  "code": "S-137",
+  "name": "Sensor S-137",
+  "type": "sensor",
+  "area": "Unit 200",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:08:20Z",
+  "vendor": "FlowTek"
+ },
+ {
+  "id": "DVC-1160",
+  "code": "F-214",
+  "name": "Fan F-214",
+  "type": "fan",
+  "area": "Unit 100",
+  "status": "running",
+  "lastSeen": "2025-06-01T08:02:40Z",
+  "vendor": "FlowTek"
+ },
+ {
+  "id": "DVC-1406",
+  "code": "V-123",
+  "name": "Valve V-123",
+  "type": "valve",
+  "area": "Cooling Line",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:19:00Z",
+  "vendor": "—"
+ },
+ {
+  "id": "DVC-1959",
+  "code": "P-117",
+  "name": "Pump P-117",
+  "type": "pump",
+  "area": "Unit 100",
+  "status": "stopped",
+  "lastSeen": "2025-06-01T08:34:00Z",
+  "vendor": "FlowTek"
+ }
+]

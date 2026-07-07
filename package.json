@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "api": "node mock-api/devices-api.mjs"
   },
   "prettier": {
     "printWidth": 100,
