@@ -6,9 +6,12 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
+import { effect } from '@angular/core';
+import { DeviceStore } from '../../../devices/services/device-store';
 import { HttpClient } from '@angular/common/http';
 import { EditorSelectionState } from '../../services/editor-selection-state';
 import { SvgDom } from '../../services/svg-dom';
+
 import { SvgElementInfo } from '../../models/svg-element-info';
 import { SelectedSvgElement } from '../../models/selected-svg-element';
 @Component({
@@ -21,6 +24,7 @@ export class SvgCanvas implements AfterViewInit {
   private readonly http = inject(HttpClient);
   private readonly svgDom = inject(SvgDom);
   private readonly selectionState = inject(EditorSelectionState);
+  private readonly deviceStore = inject(DeviceStore);
 
   protected readonly svgHost =
     viewChild.required<ElementRef<HTMLDivElement>>('svgHost');
@@ -31,6 +35,34 @@ export class SvgCanvas implements AfterViewInit {
   protected readonly selectedElement = signal<SelectedSvgElement | null>(null);
 
   private svgRoot: SVGSVGElement | null = null;
+
+  constructor() {
+  effect(() => {
+    const selectedDevice = this.deviceStore.selectedDevice();
+
+    if (!selectedDevice) {
+      return;
+    }
+
+    const svgRoot =
+      this.svgRoot ??
+      this.svgHost().nativeElement.querySelector<SVGSVGElement>('svg');
+
+    const svgElement = this.svgDom.findElementByDeviceId(
+      svgRoot,
+      selectedDevice.id
+    );
+
+    if (!svgElement) {
+      return;
+    }
+
+    const selectedSvgElement = this.svgDom.selectElement(svgElement);
+
+    this.selectedElement.set(selectedSvgElement);
+    this.selectionState.select(selectedSvgElement);
+  });
+}
 
   ngAfterViewInit(): void {
     this.loadSvg('/assets/plant.svg');

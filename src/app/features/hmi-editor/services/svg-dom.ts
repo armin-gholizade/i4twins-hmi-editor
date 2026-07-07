@@ -162,4 +162,23 @@ export class SvgDom {
       attributes: this.getAttributes(element),
     };
   }
+
+  findElementByDeviceId(
+  svgRoot: SVGSVGElement | null,
+  deviceId: string
+): SVGElement | null {
+  if (!svgRoot || !deviceId.trim()) {
+    return null;
+  }
+
+  const normalizedDeviceId = deviceId.trim().toLowerCase();
+
+  return (
+    Array.from(svgRoot.querySelectorAll<SVGElement>('[data-device-id]')).find(
+      (element) =>
+        (element.getAttribute('data-device-id') ?? '').trim().toLowerCase() ===
+        normalizedDeviceId
+    ) ?? null
+  );
+}
 }

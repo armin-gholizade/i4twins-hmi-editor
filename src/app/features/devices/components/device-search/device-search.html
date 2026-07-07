@@ -1,0 +1,30 @@
+<div class="device-search">
+  <label for="device-search">Device Search</label>
+
+  <input
+    id="device-search"
+    type="search"
+    [formControl]="searchControl"
+    placeholder="Search by name or code"
+  />
+
+  @if (deviceStore.isLoading()) {
+    <p class="state">Loading...</p>
+  } @else if (deviceStore.errorMessage()) {
+    <p class="state error">{{ deviceStore.errorMessage() }}</p>
+  } @else if (deviceStore.isEmpty()) {
+    <p class="state">No devices found.</p>
+  }
+
+  @if (deviceStore.results().length > 0) {
+    <div class="results">
+      @for (device of deviceStore.results(); track device.id + device.code) {
+        <button type="button" (click)="selectDevice(device)">
+          <strong>{{ device.code || '—' }}</strong>
+          <span>{{ device.name }}</span>
+          <small>{{ device.status }}</small>
+        </button>
+      }
+    </div>
+  }
+</div>

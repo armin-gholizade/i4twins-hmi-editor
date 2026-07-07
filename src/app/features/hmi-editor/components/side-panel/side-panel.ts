@@ -2,10 +2,10 @@ import { Component, computed, effect, inject, signal } from '@angular/core';
 import { EditorSelectionState } from '../../services/editor-selection-state';
 import { FormsModule } from '@angular/forms';
 import { SvgDom } from '../../services/svg-dom';
-
+import { DeviceSearch } from '../../../devices/components/device-search/device-search';
 @Component({
   selector: 'app-side-panel',
-  imports: [FormsModule],
+  imports: [FormsModule,DeviceSearch],
   templateUrl: './side-panel.html',
   styleUrl: './side-panel.scss',
 })

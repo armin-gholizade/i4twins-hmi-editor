@@ -1,0 +1,55 @@
+.device-search {
+  display: grid;
+  gap: 8px;
+}
+
+label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #c8ccd2;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.state {
+  margin: 4px 0 0;
+  color: #68707c;
+  font-size: 12px;
+}
+
+.state.error {
+  color: #b3261e;
+}
+
+.results {
+  display: grid;
+  gap: 6px;
+  max-height: 220px;
+  overflow: auto;
+}
+
+.results button {
+  display: grid;
+  gap: 2px;
+  padding: 8px 10px;
+  text-align: left;
+  border: 1px solid #dde1e6;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.results button:hover {
+  background: #f5f7fa;
+}
+
+span,
+small {
+  color: #68707c;
+  font-size: 12px;
+}
