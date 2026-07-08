@@ -36,12 +36,15 @@ const server = createServer(async (request, response) => {
       const devices = await readDevices();
 
       const result = q
-        ? devices.filter((device) => {
-            const name = normalize(device.name);
-            const code = normalize(device.code);
+        ? devices.filter((device) =>
+          Object.values(device).some((value) => {
+            if (value == null) {
+              return false;
+            }
 
-            return name.includes(q) || code.includes(q);
+            return normalize(value).includes(q);
           })
+        )
         : devices;
 
       sendJson(response, 200, result);

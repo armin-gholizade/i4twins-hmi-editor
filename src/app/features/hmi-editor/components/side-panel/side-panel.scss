@@ -144,9 +144,8 @@ button:disabled {
 .device-details dd {
   margin: 0;
   font-size: 14px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
+  direction: auto;
 }
 
 .recent-devices {
@@ -186,4 +185,24 @@ button:disabled {
   padding: 8px 10px;
   border-radius: 6px;
   font-size: 13px;
+}
+
+.device-details dd,
+.summary strong,
+.attribute-value,
+.recent-devices span,
+.recent-devices strong {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  direction: auto;
+}
+
+.recent-devices button {
+  min-width: 0;
+}
+
+.warning-state,
+.empty-state,
+.feedback {
+  overflow-wrap: anywhere;
 }

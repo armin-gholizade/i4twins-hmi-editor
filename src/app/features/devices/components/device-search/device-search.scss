@@ -53,3 +53,19 @@ small {
   color: #68707c;
   font-size: 12px;
 }
+
+.results button {
+  min-width: 0;
+}
+
+.results strong,
+.results span,
+.results small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.results span {
+  direction: auto;
+}
