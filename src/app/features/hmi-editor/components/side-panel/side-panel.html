@@ -34,10 +34,10 @@
           {{ attribute.name }}
         </label>
 
-        <input [id]="'attr-' + attribute.name" type="text" [value]="editedValues()[attribute.name] ?? attribute.value"
+        <input [id]="'attr-' + attribute.name" [disabled]="preview.isEnabled()" type="text" [value]="editedValues()[attribute.name] == null ? attribute.value : editedValues()[attribute.name]"
           (input)="updateEditedValue(attribute.name, $any($event.target).value)" />
 
-        <button type="button" [disabled]="!hasAttributeChanged(attribute.name, attribute.value)"
+        <button type="button" [disabled]="preview.isEnabled() || !hasAttributeChanged(attribute.name, attribute.value)"
           (click)="saveAttribute(attribute.name)">
           Save
         </button>

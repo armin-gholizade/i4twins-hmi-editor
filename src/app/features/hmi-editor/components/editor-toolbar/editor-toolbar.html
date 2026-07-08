@@ -7,7 +7,7 @@
   <div class="toolbar-actions">
     <button type="button">Load SVG</button>
     <label>
-      <input type="checkbox" />
+      <input type="checkbox" [checked]="preview.isEnabled()" (change)="onPreviewChange($event)" />
       Preview mode
     </label>
   </div>

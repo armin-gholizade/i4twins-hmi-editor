@@ -1,5 +1,5 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
-import { catchError, finalize, of, switchMap, tap } from 'rxjs';
+import { catchError, finalize, Observable, of, switchMap, tap } from 'rxjs';
 
 import { Device } from '../models/device';
 import { DeviceApi } from './device-api';
@@ -71,7 +71,24 @@ export class DeviceStore {
       .subscribe();
   }
 
+  loadDevices(): Observable<Device[]> {
+    this.isLoading.set(true);
+    this.errorMessage.set(null);
+
+    return this.deviceApi.getDevices().pipe(
+      catchError(() => {
+        this.errorMessage.set('Could not load devices.');
+        return of([]);
+      }),
+      finalize(() => this.isLoading.set(false))
+    );
+  }
+
   clearSelection(): void {
     this.selectedDevice.set(null);
   }
+
+  selectDeviceSilently(device: Device | null): void {
+  this.selectedDevice.set(device);
+}
 }

@@ -72,4 +72,10 @@ export class DeviceApi {
   private toText(value: unknown): string {
     return String(value ?? '').trim();
   }
+
+  getDevices(): Observable<Device[]> {
+  return this.http
+    .get<RawDevice[]>(this.baseUrl)
+    .pipe(map((devices) => devices.map((device) => this.normalizeDevice(device))));
+}
 }

@@ -164,21 +164,82 @@ export class SvgDom {
   }
 
   findElementByDeviceId(
-  svgRoot: SVGSVGElement | null,
-  deviceId: string
-): SVGElement | null {
-  if (!svgRoot || !deviceId.trim()) {
-    return null;
+    svgRoot: SVGSVGElement | null,
+    deviceId: string
+  ): SVGElement | null {
+    if (!svgRoot || !deviceId.trim()) {
+      return null;
+    }
+
+    const normalizedDeviceId = deviceId.trim().toLowerCase();
+
+    return (
+      Array.from(svgRoot.querySelectorAll<SVGElement>('[data-device-id]')).find(
+        (element) =>
+          (element.getAttribute('data-device-id') ?? '').trim().toLowerCase() ===
+          normalizedDeviceId
+      ) ?? null
+    );
   }
 
-  const normalizedDeviceId = deviceId.trim().toLowerCase();
+  applyPreviewColors(
+    svgRoot: SVGSVGElement | null,
+    devicesById: Map<string, { status: string }>,
+    getColor: (status: string) => string
+  ): void {
+    if (!svgRoot) {
+      return;
+    }
 
-  return (
-    Array.from(svgRoot.querySelectorAll<SVGElement>('[data-device-id]')).find(
-      (element) =>
-        (element.getAttribute('data-device-id') ?? '').trim().toLowerCase() ===
-        normalizedDeviceId
-    ) ?? null
-  );
-}
+    svgRoot.querySelectorAll<SVGElement>('[data-device-id]').forEach((element) => {
+      const deviceId = element.getAttribute('data-device-id')?.trim().toLowerCase();
+
+      if (!deviceId) {
+        return;
+      }
+
+      const device = devicesById.get(deviceId);
+      const color = getColor(device?.status ?? 'unknown');
+
+      this.getColorableElements(element).forEach((shape) => {
+        if (!shape.hasAttribute('data-original-fill')) {
+          shape.setAttribute('data-original-fill', shape.getAttribute('fill') ?? '');
+        }
+
+        shape.setAttribute('fill', color);
+      });
+    });
+  }
+
+  private getColorableElements(element: SVGElement): SVGElement[] {
+    const tagName = element.tagName.toLowerCase();
+
+    if (tagName !== 'g') {
+      return [element];
+    }
+
+    return Array.from(
+      element.querySelectorAll<SVGElement>(
+        'path, rect, circle, ellipse, polygon, polyline'
+      )
+    );
+  }
+
+  clearPreviewColors(svgRoot: SVGSVGElement | null): void {
+    if (!svgRoot) {
+      return;
+    }
+
+    svgRoot.querySelectorAll<SVGElement>('[data-original-fill]').forEach((element) => {
+      const originalFill = element.getAttribute('data-original-fill');
+
+      if (originalFill) {
+        element.setAttribute('fill', originalFill);
+      } else {
+        element.removeAttribute('fill');
+      }
+
+      element.removeAttribute('data-original-fill');
+    });
+  }
 }
