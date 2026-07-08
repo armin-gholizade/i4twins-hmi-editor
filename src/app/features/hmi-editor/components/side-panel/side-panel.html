@@ -3,6 +3,66 @@
     <h2>Device Search</h2>
     <app-device-search />
   </section>
+  <section>
+    <h2>Selected Device</h2>
+    @if (deviceStore.selectedDeviceMissingInDrawing()) {
+    <p class="warning-state">
+      Device found, but no matching element exists in the drawing.
+    </p>
+    } @else if (deviceStore.selectedDrawableDevice(); as device) {
+    <dl class="device-details">
+      <div>
+        <dt>Code</dt>
+        <dd>{{ device.code }}</dd>
+      </div>
+
+      <div>
+        <dt>Name</dt>
+        <dd>{{ device.name }}</dd>
+      </div>
+
+      <div>
+        <dt>Status</dt>
+        <dd>{{ device.status }}</dd>
+      </div>
+
+      <div>
+        <dt>Area</dt>
+        <dd>{{ device.area }}</dd>
+      </div>
+
+      <div>
+        <dt>Vendor</dt>
+        <dd>{{ device.vendor }}</dd>
+      </div>
+
+      <div>
+        <dt>Last seen</dt>
+        <dd>{{ device.lastSeen ?? '—' }}</dd>
+      </div>
+    </dl>
+    } @else {
+    <p class="empty-state">No device selected.</p>
+    }
+  </section>
+
+  <section>
+    <h2>Recent Devices</h2>
+
+    @if (deviceStore.recentDevices().length > 0) {
+    <div class="recent-devices">
+      @for (device of deviceStore.recentDevices(); track device.id) {
+      <button type="button" (click)="deviceStore.selectDevice(device)">
+        <strong>{{ device.code || '—' }}</strong>
+        <span>{{ device.name }}</span>
+      </button>
+      }
+    </div>
+    } @else {
+    <p class="empty-state">No recent devices yet.</p>
+    }
+
+  </section>
 
   <section>
     <h2>Attributes</h2>
@@ -34,7 +94,8 @@
           {{ attribute.name }}
         </label>
 
-        <input [id]="'attr-' + attribute.name" [disabled]="preview.isEnabled()" type="text" [value]="editedValues()[attribute.name] == null ? attribute.value : editedValues()[attribute.name]"
+        <input [id]="'attr-' + attribute.name" [disabled]="preview.isEnabled()" type="text"
+          [value]="editedValues()[attribute.name] == null ? attribute.value : editedValues()[attribute.name]"
           (input)="updateEditedValue(attribute.name, $any($event.target).value)" />
 
         <button type="button" [disabled]="preview.isEnabled() || !hasAttributeChanged(attribute.name, attribute.value)"

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { SvgDom } from '../../services/svg-dom';
 import { DeviceSearch } from '../../../devices/components/device-search/device-search';
 import { Preview } from '../../../preview/services/preview';
+import { DeviceStore } from '../../../devices/services/device-store';
 @Component({
   selector: 'app-side-panel',
   imports: [FormsModule,DeviceSearch],
@@ -14,7 +15,8 @@ export class SidePanel {
   private readonly svgDom = inject(SvgDom);
 
   protected readonly selectionState = inject(EditorSelectionState);
-  protected  readonly preview = inject(Preview);
+  protected readonly preview = inject(Preview);
+  protected readonly deviceStore = inject(DeviceStore);
 
   protected readonly editedValues = signal<Record<string, string>>({});
   protected readonly feedbackMessage = signal<string | null>(null);

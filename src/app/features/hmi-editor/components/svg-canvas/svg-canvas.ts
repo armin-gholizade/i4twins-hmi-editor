@@ -4,6 +4,7 @@ import {
   ElementRef,
   inject,
   signal,
+  untracked,
   viewChild,
 } from '@angular/core';
 import { effect } from '@angular/core';
@@ -49,6 +50,7 @@ export class SvgCanvas implements AfterViewInit {
   protected readonly selectedElement = signal<SelectedSvgElement | null>(null);
 
   private svgRoot: SVGSVGElement | null = null;
+  private lastProcessedDeviceId: string | null = null;
 
   constructor() {
     effect(() => {
@@ -68,10 +70,18 @@ export class SvgCanvas implements AfterViewInit {
         this.statusColor.getColor(status)
       );
     });
+
     effect(() => {
       const selectedDevice = this.deviceStore.selectedDevice();
 
       if (!selectedDevice) {
+        this.lastProcessedDeviceId = null;
+        return;
+      }
+
+      const deviceId = selectedDevice.id.trim().toLowerCase();
+
+      if (this.lastProcessedDeviceId === deviceId) {
         return;
       }
 
@@ -85,6 +95,12 @@ export class SvgCanvas implements AfterViewInit {
       );
 
       if (!svgElement) {
+        this.svgDom.clearSelection();
+        this.selectedElement.set(null);
+        this.selectionState.clear();
+        untracked(() => {
+          this.deviceStore.markSelectedDeviceMissingInDrawing();
+        });
         return;
       }
 
@@ -92,6 +108,9 @@ export class SvgCanvas implements AfterViewInit {
 
       this.selectedElement.set(selectedSvgElement);
       this.selectionState.select(selectedSvgElement);
+      untracked(() => {
+        this.deviceStore.confirmDeviceInDrawing(selectedDevice);
+      });
     });
   }
 

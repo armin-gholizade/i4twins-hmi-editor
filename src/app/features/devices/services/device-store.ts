@@ -13,29 +13,34 @@ export class DeviceStore {
   readonly query = signal('');
   readonly results = signal<Device[]>([]);
   readonly selectedDevice = signal<Device | null>(null);
+  readonly recentDevices = signal<Device[]>([]);
+  readonly selectedDrawableDevice = signal<Device | null>(null);
+
+
 
   readonly isLoading = signal(false);
   readonly errorMessage = signal<string | null>(null);
+  readonly selectedDeviceMissingInDrawing = signal(false);
 
   readonly hasQuery = computed(() => this.query().trim().length > 0);
   readonly isEmpty = computed(
     () => this.hasQuery() && !this.isLoading() && this.results().length === 0
   );
 
-  search(query: string): void {
+  searchDevices(query: string): Observable<Device[]> {
     const normalizedQuery = query.trim();
 
     this.query.set(query);
     this.errorMessage.set(null);
 
-    if (!normalizedQuery) {
-      this.results.set([]);
-      return;
+    if (normalizedQuery.length < 2) {
+      this.clearSearch();
+      return of([]);
     }
 
     this.isLoading.set(true);
 
-    this.deviceApi
+    return this.deviceApi
       .searchDevices(normalizedQuery)
       .pipe(
         tap((devices) => this.results.set(devices)),
@@ -46,11 +51,12 @@ export class DeviceStore {
         }),
         finalize(() => this.isLoading.set(false))
       )
-      .subscribe();
   }
 
   selectDevice(device: Device): void {
     this.selectedDevice.set(device);
+    this.selectedDeviceMissingInDrawing.set(false);
+    this.selectedDrawableDevice.set(null);
   }
 
   selectDeviceById(id: string): void {
@@ -60,9 +66,14 @@ export class DeviceStore {
     this.deviceApi
       .getDeviceById(id)
       .pipe(
-        tap((device) => this.selectedDevice.set(device)),
+        tap((device) => {
+          this.selectedDevice.set(device);
+          this.selectedDeviceMissingInDrawing.set(false);
+          this.selectedDrawableDevice.set(null);
+        }),
         catchError(() => {
           this.selectedDevice.set(null);
+          this.selectedDrawableDevice.set(null);
           this.errorMessage.set('Device was not found.');
           return of(null);
         }),
@@ -84,11 +95,37 @@ export class DeviceStore {
     );
   }
 
-  clearSelection(): void {
-    this.selectedDevice.set(null);
+  confirmDeviceInDrawing(device: Device): void {
+    this.selectedDeviceMissingInDrawing.set(false);
+    this.selectedDrawableDevice.set(device);
+    this.addRecentDevice(device);
   }
 
-  selectDeviceSilently(device: Device | null): void {
-  this.selectedDevice.set(device);
-}
+  markSelectedDeviceMissingInDrawing(): void {
+    this.selectedDeviceMissingInDrawing.set(true);
+    this.selectedDrawableDevice.set(null);
+  }
+
+  clearSearch(): void {
+    this.query.set('');
+    this.results.set([]);
+    this.errorMessage.set(null);
+  }
+
+  clearSelection(): void {
+    this.selectedDevice.set(null);
+    this.selectedDrawableDevice.set(null);
+    this.selectedDeviceMissingInDrawing.set(false);
+
+  }
+
+  private addRecentDevice(device: Device): void {
+    const normalizedId = device.id.trim().toLowerCase();
+
+    const withoutDuplicate = this.recentDevices().filter(
+      (recent) => recent.id.trim().toLowerCase() !== normalizedId
+    );
+
+    this.recentDevices.set([device, ...withoutDuplicate].slice(0, 5));
+  }
 }

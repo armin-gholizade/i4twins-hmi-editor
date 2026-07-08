@@ -1,6 +1,6 @@
 import { Component, DestroyRef, inject, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, filter, tap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, switchMap, tap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { Device } from '../../models/device';
@@ -23,7 +23,7 @@ export class DeviceSearch {
       .pipe(
         debounceTime(300),
         distinctUntilChanged(),
-        tap((query) => this.deviceStore.search(query)),
+        switchMap((query) => this.deviceStore.searchDevices(query)),
         takeUntilDestroyed(this.destroyRef)
       )
       .subscribe();
@@ -31,5 +31,8 @@ export class DeviceSearch {
 
   protected selectDevice(device: Device): void {
     this.deviceStore.selectDevice(device);
+    this.deviceStore.clearSearch();
+
+    this.searchControl.setValue('', { emitEvent: false });
   }
 }
