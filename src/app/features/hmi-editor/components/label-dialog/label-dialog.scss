@@ -1,0 +1,24 @@
+.dialog-content {
+  display: grid;
+  gap: 16px;
+  min-width: 320px;
+  padding: 8px !important;
+}
+
+.color-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 14px;
+}
+
+input[type='color'] {
+  width: 56px;
+  height: 36px;
+//   padding: 0;
+  border: 1px solid #c8ccd2;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}

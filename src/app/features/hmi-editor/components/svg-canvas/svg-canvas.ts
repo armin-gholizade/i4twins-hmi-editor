@@ -16,6 +16,14 @@ import { SvgElementInfo } from '../../models/svg-element-info';
 import { SelectedSvgElement } from '../../models/selected-svg-element';
 import { Preview } from '../../../preview/services/preview';
 import { StatusColor } from '../../../preview/services/status-color';
+import { SvgLabel } from '../../services/svg-label';
+import { MatDialog } from '@angular/material/dialog';
+import {
+  LabelDialog,
+  LabelDialogResult,
+} from '../label-dialog/label-dialog';
+import { ConfirmDialog } from '../confirm-dialog/confirm-dialog';
+
 @Component({
   selector: 'app-svg-canvas',
   imports: [],
@@ -29,6 +37,8 @@ export class SvgCanvas implements AfterViewInit {
   private readonly deviceStore = inject(DeviceStore);
   private readonly preview = inject(Preview);
   private readonly statusColor = inject(StatusColor);
+  private readonly svgLabel = inject(SvgLabel);
+  private readonly dialog = inject(MatDialog);
 
   protected readonly svgHost =
     viewChild.required<ElementRef<HTMLDivElement>>('svgHost');
@@ -89,10 +99,64 @@ export class SvgCanvas implements AfterViewInit {
     this.loadSvg('/assets/plant.svg');
   }
 
+  protected onCanvasContextMenu(event: MouseEvent): void {
+    event.preventDefault();
+
+    if (this.preview.isEnabled()) {
+      return;
+    }
+
+    const target = event.target;
+
+    if (this.svgLabel.isLabel(target)) {
+      this.dialog
+        .open<ConfirmDialog, void, boolean>(ConfirmDialog, {
+          width: '360px',
+          autoFocus: false,
+        })
+        .afterClosed()
+        .subscribe((confirmed) => {
+          if (confirmed) {
+            this.svgLabel.deleteLabel(target);
+          }
+        });
+
+      return;
+    }
+
+    const svgRoot =
+      this.svgRoot ??
+      this.svgHost().nativeElement.querySelector<SVGSVGElement>('svg');
+
+    if (!svgRoot) {
+      return;
+    }
+
+    this.dialog
+      .open<LabelDialog, void, LabelDialogResult>(LabelDialog, {
+        width: '420px',
+        autoFocus: false,
+      })
+      .afterClosed()
+      .subscribe((result) => {
+        if (!result) {
+          return;
+        }
+
+        this.svgLabel.addLabel(
+          svgRoot,
+          event.clientX,
+          event.clientY,
+          result.text,
+          result.color
+        );
+      });
+  }
+
   protected onCanvasPointerDown(event: PointerEvent): void {
     if (this.preview.isEnabled()) {
-    return;
-}
+      return;
+    }
     const svgRoot =
       this.svgRoot ??
       this.svgHost().nativeElement.querySelector<SVGSVGElement>('svg');
